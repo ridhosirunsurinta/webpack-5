@@ -10,7 +10,7 @@ The app will run on [http://localhost:3000](http://localhost:3000)
   `git remote remove origin`
   <br />
 - Replace with your remote
-  `git remote add origin` **your ssh/https link**
+  `git remote add origin` **_your ssh/https link_**
 
 ### Build for production
 
@@ -20,6 +20,9 @@ This command will create /dist folder
 
 ### Packages
 
+- react
+- react-dom
+- react-router-dom
 - webpack 5
 - webpack-cli
 - webpack-dev-server
