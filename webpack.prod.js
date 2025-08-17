@@ -1,9 +1,21 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
   mode: "production",
+  optimization: {
+    minimizer: [
+      new TerserPlugin(),
+    ],
+    moduleIds: 'deterministic',
+  },
+  performance: {
+    hints: 'warning',
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   module: {
     rules: [
       {
