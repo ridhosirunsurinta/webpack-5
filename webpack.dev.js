@@ -11,6 +11,11 @@ module.exports = merge(common, {
     https: false,
     compress: true,
     open: true, // Open default browser automatically
+    historyApiFallback: true, // For React Router
+    client: {
+      overlay: true, // Show errors as overlay
+      progress: true, // Show build progress
+    },
   },
   module: {
     rules: [

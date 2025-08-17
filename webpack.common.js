@@ -16,7 +16,20 @@ module.exports = {
       {
         test: /\.(js|jsx)$/, // Support .js and .jsx
         exclude: /node_modules/,
-        loader: "babel-loader",
+        use: {
+          loader: "babel-loader",
+          options: {
+            cacheDirectory: true, // Enable babel caching
+          }
+        },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       },
     ],
   },
@@ -36,7 +49,14 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"), // After build the dist folder will created
-    filename: "[name].bundle.js",
+    filename: "[name].[contenthash].js", // Add contenthash for cache busting
+    assetModuleFilename: "assets/[hash][ext][query]",
     clean: true,
+  },
+  cache: {
+    type: 'filesystem', // Enable persistent caching
+    buildDependencies: {
+      config: [__filename], // Invalidate cache when webpack config changes
+    },
   },
 };
