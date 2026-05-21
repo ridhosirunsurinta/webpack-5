@@ -20,7 +20,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /.(css|scss|sass)$/i, // Support CSS, SCSS and SASS
+        test: /\.(css|scss|sass)$/i, // Support CSS, SCSS and SASS
         use: [
           "style-loader", // Inject CSS into the DOM
           {
