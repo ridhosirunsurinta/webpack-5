@@ -14,7 +14,6 @@ A modern and optimized Webpack 5 boilerplate for React applications with develop
 - 💾 File-system caching for faster builds
 - 🖼️ Asset management for images and fonts
 - 🔍 Source maps for development
-- 🏷️ TypeScript-ready
 
 ## Quick Start
 
@@ -48,8 +47,10 @@ A modern and optimized Webpack 5 boilerplate for React applications with develop
 
 Start the development server:
 ```bash
-npm run dev
+npm start
 ```
+(`npm run dev` is also available as an alias.)
+
 - Opens automatically at [http://localhost:3000](http://localhost:3000)
 - Includes Hot Module Replacement
 - Shows build progress and errors overlay
@@ -58,7 +59,7 @@ npm run dev
 
 Create a production build:
 ```bash
-npm run predeploy
+npm run build
 ```
 - Generates optimized assets in `/dist` folder
 - Includes minification and cache-busting
