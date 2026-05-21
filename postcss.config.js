@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV === "production") {
-  // This will triggered when npm run build:prod
+  // This is triggered when running `npm run build`
   module.exports = {
     plugins: {
       autoprefixer: {},

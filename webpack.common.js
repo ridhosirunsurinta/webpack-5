@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -34,9 +33,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      React: "react", // Don't have to 'import React from 'react'; on top of your component'
-    }),
     new HtmlWebpackPlugin({
       title: "Webpack 5",
       template: "public/index.html",

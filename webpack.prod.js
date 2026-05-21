@@ -1,14 +1,11 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(common, {
   mode: "production",
   optimization: {
-    minimizer: [
-      new TerserPlugin(),
-    ],
+    // mode: "production" already enables Terser for JS minification.
     moduleIds: 'deterministic',
   },
   performance: {
@@ -19,7 +16,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /.scss$/i,
+        test: /\.(css|scss|sass)$/i,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -33,7 +30,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "[name].[contenthash].css",
     }),
   ],
 });

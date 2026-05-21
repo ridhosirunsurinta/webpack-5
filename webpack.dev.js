@@ -8,7 +8,7 @@ module.exports = merge(common, {
   devServer: {
     hot: true, // Reload Automatically
     port: 3000, // PORT
-    https: false,
+    server: "http",
     compress: true,
     open: true, // Open default browser automatically
     historyApiFallback: true, // For React Router
@@ -20,7 +20,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /.(css|scss|sass)$/i, // Support CSS, SCSS and SASS
+        test: /\.(css|scss|sass)$/i, // Support CSS, SCSS and SASS
         use: [
           "style-loader", // Inject CSS into the DOM
           {
